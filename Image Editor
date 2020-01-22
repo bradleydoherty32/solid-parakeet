@@ -1,0 +1,57 @@
+print ("      Welcome to the Image Editor for PPM Files")
+print ("Options include N-egate, F-latten, G-rey Scale, and Q-uit.")
+print ("If you enter N or F, you will be prompted for the colors")
+print("you would like to negate/flatten: Red, Green, and/or Blue.")
+print ("You will also be prompted for the names of the input and")
+print ("output files for each operation.")
+
+def negated():
+    red_negate = input("Red (y,n): ")
+    while red_negate not in ("Y", "y", "N", "n"):
+        red_negate = input("Red (y,n): ")
+    green_negate = input("Green (y,n): ")
+    while green_negate not in ("Y", "y", "N", "n"):
+        green_negate = input("Green (y,n): ")
+    blue_negate = input("Blue (y,n): ")
+    while blue_negate not in ("Y", "y", "N", "n"):
+        blue_negate = input("Blue (y,n): ")
+
+
+def flatten():
+    red_flatten = input("Red (y,n): ")
+    while red_flatten not in ("Y", "y", "N", "n"):
+        red_flatten = input("Red (y,n): ")
+    green_flatten = input("Green (y,n): ")
+    while green_flatten not in ("Y", "y", "N", "n"):
+        green_flatten = input("Green (y,n): ")
+    blue_flatten = input("Blue (y,n): ")
+    while blue_flatten not in ("Y", "y", "N", "n"):
+        blue_flatten = input("Blue (y,n): ")
+
+
+#def gray_scale():
+
+
+def get_input_file():
+    numbers_list = []
+    input_file_name = input("Enter input file: ")
+    input_file = open(input_file_name, 'r')
+    for line in input_file:
+        numbers_list = line.split(" ")
+    print(numbers_list)
+
+
+def get_output_file():
+    output_file_name = input("Enter Output file: ")
+###    output_file_name
+game_over = False
+while game_over == False:
+    editing_input= input("Enter N-egate, F-latten, G-rey Scale, or Q-uit: ")
+    while editing_input not in ("N", "n", "F", "f", "G", "g", "Q", "q"):
+        editing_input = input("Enter N-egate, F-latten, G-rey Scale, or Q-uit: ")
+    if editing_input in ("Q", "q"):
+        game_over = True
+
+
+
+    get_input_file()
