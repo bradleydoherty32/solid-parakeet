@@ -1,0 +1,56 @@
+print ("Welcome to the Diagnosis Decision Support System When prompted, please enter today's month and day (e.g., 3 14), the patient's full name, temperature, and whether the patientis experiencing congestion, aches, and/or a rash. A diagnosis of Healthy, Cold, Flu, Measles, or Uncertain will be output as well as a return date, if the diagnosis is Measles or Uncertain.")
+name=input("Patient: ")
+monthday=input("Month Day (e.g., 3 14): ")
+temperature=float(input("Temperature: "))
+congestion=input("Congestion (y/n): ")
+if congestion not in ("y","n","Y","N"):
+    print("Invalid response")
+    exit(1)
+aches=input("Aches (y/n): ")
+if aches not in ("y","n","Y","N"):
+    print("Invalid response")
+    exit(1)
+rash=input("Rash (y/n): ")
+if rash not in ("y","n","Y","N"):
+    print("Invalid response")
+    exit(1)
+
+
+index_of_space = monthday.find(" ")
+month = int(monthday[:index_of_space])
+day = int(monthday[index_of_space+1:])
+
+
+if temperature<99 and congestion in ("n","N") and aches in ("n","N") and rash in ("n","N"):
+    diagnosis=("healthy")
+if temperature<100 and congestion in ("y","Y") and aches in ("n","N") and rash in ("n","N"):
+    diagnosis=("cold")
+if temperature>=100 and congestion in ("n","N") and aches in ("y","Y") and rash in ("n","N"):
+    diagnosis=("flu")
+if temperature>=100 and congestion in ("n","N") and aches in ("n","N") and rash in ("y","Y"):
+    diagnosis=("measles")
+
+print("Patient:",name)
+print("Date:",month,"/",day,"/ 2017")
+
+
+returnday=day+3
+
+if month==2 and returnday>28:
+    month+=1
+    diff=returnday-28
+    returnday=diff
+
+elif month in [4,6,9,11] and returnday>30:
+    month+=1
+    diff=returnday-30
+    returnday=diff
+
+elif returnday>31:
+    month+=1
+    diff=returnday-31
+    returnday=diff
+
+
+print("Return Day:",month,"/",returnday,"/ 2017")
+print("Diagnosis:",diagnosis)
