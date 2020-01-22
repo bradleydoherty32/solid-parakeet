@@ -1,0 +1,29 @@
+def calculate_probability(n):
+    """
+    Calculates probability that two people in a group of people will have the same birthday
+    :param n: integer, number of people
+    :return: float, probability that two people will have the same birthday """
+
+
+user_min=int(input("Minimum number of people?: "))
+user_max=int(input("Maximum number of people?: "))
+print()
+print("%10s     %10s" % ("Number of People", "Probability of two people having the same birthday"))
+print("%10s     %10s" % ("________________", "__________________________________________________"))
+def calculate_probability(n):
+    """
+    Calculates probability that two people in a group of people will have the same birthday
+    :param n: integer, number of people
+    :return: float, probability that two people will have the same birthday
+    """
+    days_per_year = 365
+#probability = 1 - ((days_per_year - n + 1) / days_per_year)
+    for y in range (n+1):
+        thing=(days_per_year-y+1)/days_per_year
+        almost_there=thing*thing
+        probability=1-almost_there
+    print("%10d %30.4f" % (n, probability))
+for x in range (user_min,user_max+1):
+    n=x
+    calculate_probability(n)
+    n=n+1
